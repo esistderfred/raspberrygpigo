@@ -1,11 +1,5 @@
 package raspberrygpigo
 
-import (
-	rpio "github.com/stianeikeland/go-rpio/v4"
-)
-
-type Pin uint8
-
 type GoPin interface {
 	Output()
 	High()
@@ -13,5 +7,14 @@ type GoPin interface {
 	Toggle()
 
 	Input()
-	Read() rpio.State
+	Read() State
+
+	Mode(Mode)
+	Write(State)
+
+	PullUp()
+	PullDown()
+	PullOff()
+
+	Pull(Pull)
 }
